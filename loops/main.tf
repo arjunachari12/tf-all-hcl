@@ -34,7 +34,7 @@ resource "azurerm_storage_account" "sa" {
 
 resource "azurerm_storage_container" "data" {
     for_each = toset(["data", "files", "documents"])
-    name = "data"
+    name = each.key
     storage_account_name = "arjun3232dafdfse"
     container_access_type = "blob"
     depends_on = [
